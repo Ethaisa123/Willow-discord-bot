@@ -1,3 +1,14 @@
+
+#installs all nessisary pips
+try:
+    import lightbulb
+    import hikari
+    from dotenv import load_dotenv
+    import requests 
+except ImportError:
+    os.system('pip install requirements.txt')
+
+#imports pips
 from ctypes import Union
 from msilib import sequence
 from typing import Optional, Sequence
@@ -12,11 +23,13 @@ load_dotenv()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
+
 #bad bad bad enifficent code
 #I GIVE UP IF IT WORKS IT WORKS
 
 def verse_funct_text(r):
     
+
     #getting the text of the verse
     finaltxt = str(r.text)
     finaltxt = finaltxt.split("bilingual-left", 1)
@@ -27,6 +40,7 @@ def verse_funct_text(r):
     finaltxt = finaltxt.replace("<", "") 
     final_verse_text = finaltxt + '"'
     
+
     #getting the verse number(id? idk) of the verse
     finaltxt = str(r.text)
     finaltxt = finaltxt.split("Verse of the Day:", 1)
@@ -56,6 +70,7 @@ def verse_funct_image(r):
 
 #calculating days until next camp
 today = datetime.date.today()
+#why is the date randomly 1-2 days off IDK BUT IT SURE AS HELL IS ANNOYING
 future = datetime.date(2022,7,17)
 diff = future - today
 days_until = str(diff.days)
@@ -64,14 +79,14 @@ days_until = str(diff.days)
 #authing discord bot
 bot = lightbulb.BotApp(
     token=TOKEN,
-    default_enabled_guilds=(733440457618620417)
+    default_enabled_guilds=(733440457618620417, 952065165988339722)
 )
+
 
 #check for the discord bot starting
 @bot.listen(hikari.StartedEvent)
 async def on_start(event):
     print("dish bot Esh workin")
-
 
 
 #sayying the ammount of days when called
@@ -94,6 +109,7 @@ async def ping(ctx):
 @lightbulb.command("verse-of-the-day", "a random verse every day")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def echo(ctx):
+    #THIS DOESNT WORK AND I DONT KNOW WHY I HAVE BEEN BASHING MY HEAD AGAINST A WALL FOR TO LONG NOW
     payload = {'key1': 'value1', 'key2': 'value2'}
     r = requests.get('https://www.verseoftheday.com/', params=payload)
     
@@ -102,8 +118,6 @@ async def echo(ctx):
     elif ctx.options.verse == "verse-image":
         await ctx.respond(verse_funct_image(r))
     
-
-
 
 #BOT COMMAND FOR PLAYLIST
 @bot.command()
@@ -118,9 +132,23 @@ async def echo(ctx):
     elif ctx.options.camps == "general-playlist":
         await ctx.respond(ctx.options.camps + ": https://open.spotify.com/playlist/1bOpQMbSqb1lWmAsqyGcQX")
 
+
+#bot command bug report
+@bot.command
+@lightbulb.option("bug", "a place to type any bugs you find")
+@lightbulb.command("bug-report", "if you find any bugs or issues write about it here")
+@lightbulb.implements(lightbulb.SlashCommand)
+async def add(ctx):
+    await ctx.respond("thankyou for issueing a bug report \nthe bug has now been recorded for the willow developers :)")
+    date = str(today)
+    print(ctx.options.bug + " : " + date)
+    f = open("bugs.txt", "a")
+    f.write(ctx.options.bug + " : " + str(date) + "\n")
+    f.close()
+
+
+
 """
-
-
 @bot.command
 @lightbulb.option("category", "rule category", choices=["Main", "Minecraft", "Minecraft Shops"],  required=True)
 @lightbulb.option("number", "number for the rule", required=True)
