@@ -1,6 +1,15 @@
 import lightbulb
 import hikari
 import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TOKEN = os.getenv("DISCORD_TOKEN")
+
+
+
 
 #calculating days until next camp
 today = datetime.date.today()
@@ -11,7 +20,7 @@ days_until = str(diff.days)
 
 #authing discord bot
 bot = lightbulb.BotApp(
-    token="OTY5MzI3NzUxNzc1NTMxMDQ4.Ymry0Q.AVfQBwp7EySxpq1BljrYBdslOuE",
+    token=TOKEN,
     default_enabled_guilds=(733440457618620417)
 )
 
@@ -31,6 +40,9 @@ async def ping(ctx):
 
 @bot.command
 @lightbulb.command("website", "the bot github website!")
+@lightbulb.implements(lightbulb.SlashCommand)
+async def ping(ctx):
+    await ctx.respond("")
 
 """
 @bot.command
@@ -53,4 +65,5 @@ async def subcommand(ctx):
 async def add(ctx):
     await ctx.respond(ctx.options.num1 + ctx.options.num2)
 """
+
 bot.run()
