@@ -182,48 +182,6 @@ async def echo(ctx):
 
 """
 https://photos.app.goo.gl/Y6AJQGjoeTibqiib7
-
-@bot.command
-@lightbulb.option("category", "rule category", choices=["Main", "Minecraft", "Minecraft Shops"],  required=True)
-@lightbulb.option("number", "number for the rule", required=True)
-@lightbulb.command("rule", "Trigger a rule message", )
-@lightbulb.implements(lightbulb.SlashCommand)
-async def rule(ctx: lightbulb.Context) -> None:
-    if ctx.options.category == "Main":
-        await RuleTrig(ctx=ctx, category="main", number=int(ctx.options.number))
-    elif ctx.options.category == "Minecraft":
-        await RuleTrig(ctx=ctx, category="mcrules", number=int(ctx.options.number))
-    elif ctx.options.category == "Minecraft Shops":
-        await RuleTrig(ctx=ctx, category="mcshoprules", number=int(ctx.options.number))
-
-
-@bot.command
-@lightbulb.lightbulb.decorators.option("camp-playlist", "the song playlists from different camps",  Optional[Sequence[Union["", "", "", ""]]])
-@lightbulb.implements(lightbulb.SlashCommand)
-async def add(ctx):
-    pass
-
-
-
-@bot.command
-@lightbulb.command("group", "testing groups")
-@lightbulb.implements(lightbulb.SlashCommandGroup)
-async def my_group(ctx):
-    pass
-
-@my_group.child
-@lightbulb.command("subcommand", "subcommand this is")
-@lightbulb.implements(lightbulb.SlashSubCommand)
-async def subcommand(ctx):
-    await ctx.respond("subcommand")
-
-@bot.command
-@lightbulb.option("num1", "first number", type=int)
-@lightbulb.option("num2", "secound number", type=int)
-@lightbulb.command("add", "adds numbers")
-@lightbulb.implements(lightbulb.SlashCommand)
-async def add(ctx):
-    await ctx.respond(ctx.options.num1 + ctx.options.num2)
 """
 
 bot.run()
