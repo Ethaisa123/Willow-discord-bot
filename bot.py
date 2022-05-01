@@ -80,7 +80,7 @@ days_until = str(diff.days)
 #authing discord bot
 bot = lightbulb.BotApp(
     token=TOKEN,
-    default_enabled_guilds=(733440457618620417, 952065165988339722, 794686304810041345)
+    default_enabled_guilds=(970284254925840414, 733440457618620417, 952065165988339722, 970282983976230963)
 )
 
 
@@ -163,24 +163,25 @@ async def echo(ctx):
     elif ctx.options.camps == "aquatic-camp":
         await ctx.respond("aquatic camp video: https://youtu.be/StextHDOZw8/")
 
+
 @bot.command()
 @lightbulb.option("camps", "the photos from different camps", choices=["retro-camp", "futuristic-camp-N/A", "olympic-camp-N/A", "aquatic-camp-N/A"], required=True)
 @lightbulb.command("camp-photos", "the photos from different camps")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def echo(ctx):
-    if ctx.options.camps == "futuristic-camp":
+    if ctx.options.camps == "futuristic-camp-N/A":
         await ctx.respond("futuristic camp photos: https://photos.app.goo.gl/mk8hxmbD56VraC2H6")
     elif ctx.options.camps == "retro-camp":
         await ctx.respond("retro camp photos: https://photos.app.goo.gl/Y6AJQGjoeTibqiib7")
-    elif ctx.options.camps == "olympic-camp":
+    elif ctx.options.camps == "olympic-camp-N/A":
         await ctx.respond("olympic camp photos: https://photos.app.goo.gl/3o2s9GQsAxwrhEfz6")
-    elif ctx.options.camps == "aquatic-camp":
+    elif ctx.options.camps == "aquatic-camp-N/A":
         await ctx.respond("aquatic camp photos: https://photos.app.goo.gl/iBAq9KHLn3SfvLmC6")
 
 
 
-
 """
+
 https://photos.app.goo.gl/Y6AJQGjoeTibqiib7
 
 """
