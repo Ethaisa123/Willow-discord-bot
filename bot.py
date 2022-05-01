@@ -169,19 +169,20 @@ async def echo(ctx):
 @lightbulb.implements(lightbulb.SlashCommand)
 async def echo(ctx):
     if ctx.options.camps == "futuristic-camp":
-        await ctx.respond("futuristic camp photos: N/A")
+        await ctx.respond("futuristic camp photos: https://photos.app.goo.gl/mk8hxmbD56VraC2H6")
     elif ctx.options.camps == "retro-camp":
         await ctx.respond("retro camp photos: https://photos.app.goo.gl/Y6AJQGjoeTibqiib7")
     elif ctx.options.camps == "olympic-camp":
-        await ctx.respond("olympic camp photos: N/A")
+        await ctx.respond("olympic camp photos: https://photos.app.goo.gl/3o2s9GQsAxwrhEfz6")
     elif ctx.options.camps == "aquatic-camp":
-        await ctx.respond("aquatic camp photos: N/A")
+        await ctx.respond("aquatic camp photos: https://photos.app.goo.gl/iBAq9KHLn3SfvLmC6")
 
 
 
 
 """
 https://photos.app.goo.gl/Y6AJQGjoeTibqiib7
+
 """
 
 bot.run()
