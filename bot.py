@@ -6,12 +6,11 @@ try:
     from dotenv import load_dotenv
     import requests 
 except ImportError:
-    os.system('pip install requirements.txt')
+    os.system('pip install -r requirements.txt')
 
 #imports pips
 from ctypes import Union
-from msilib import sequence
-from typing import Optional, Sequence
+
 import lightbulb
 import hikari
 import datetime
@@ -22,6 +21,8 @@ import requests
 load_dotenv()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
+
+#generating files
 
 
 #bad bad bad enifficent code
@@ -79,7 +80,7 @@ days_until = str(diff.days)
 #authing discord bot
 bot = lightbulb.BotApp(
     token=TOKEN,
-    default_enabled_guilds=(733440457618620417, 952065165988339722)
+    default_enabled_guilds=(733440457618620417, 952065165988339722, 794686304810041345)
 )
 
 
@@ -139,16 +140,49 @@ async def echo(ctx):
 @lightbulb.command("bug-report", "if you find any bugs or issues write about it here")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def add(ctx):
-    await ctx.respond("thankyou for issueing a bug report \nthe bug has now been recorded for the willow developers :)")
+    
+    await ctx.respond("thankyou for issuing a bug report \nthe bug has now been recorded for the willow developers :)")
     date = str(today)
     print(ctx.options.bug + " : " + date)
     f = open("bugs.txt", "a")
-    f.write(ctx.options.bug + " : " + str(date) + "\n")
+    f.write(ctx.author.username + " : " + ctx.options.bug + " : " + str(date) + "\n")
     f.close()
+
+
+@bot.command()
+@lightbulb.option("camps", "the videos from different camps", choices=["retro-camp", "futuristic-camp", "olympic-camp", "aquatic-camp"], required=True)
+@lightbulb.command("camp-videos", "the videos from different camps")
+@lightbulb.implements(lightbulb.SlashCommand)
+async def echo(ctx):
+    if ctx.options.camps == "futuristic-camp":
+        await ctx.respond("futuristic camp video: https://youtu.be/aN5QyQjnYfc")
+    elif ctx.options.camps == "retro-camp":
+        await ctx.respond("retro camp video: https://youtu.be/Opnf18B1Kh8")
+    elif ctx.options.camps == "olympic-camp":
+        await ctx.respond("olympic camp video: https://www.youtube.com/watch?v=I47Ig4-lhZI&ab_channel=Videos%3A%29")
+    elif ctx.options.camps == "aquatic-camp":
+        await ctx.respond("aquatic camp video: https://youtu.be/StextHDOZw8/")
+
+@bot.command()
+@lightbulb.option("camps", "the photos from different camps", choices=["retro-camp", "futuristic-camp-N/A", "olympic-camp-N/A", "aquatic-camp-N/A"], required=True)
+@lightbulb.command("camp-photos", "the photos from different camps")
+@lightbulb.implements(lightbulb.SlashCommand)
+async def echo(ctx):
+    if ctx.options.camps == "futuristic-camp":
+        await ctx.respond("futuristic camp photos: N/A")
+    elif ctx.options.camps == "retro-camp":
+        await ctx.respond("retro camp photos: https://photos.app.goo.gl/Y6AJQGjoeTibqiib7")
+    elif ctx.options.camps == "olympic-camp":
+        await ctx.respond("olympic camp photos: N/A")
+    elif ctx.options.camps == "aquatic-camp":
+        await ctx.respond("aquatic camp photos: N/A")
+
 
 
 
 """
+https://photos.app.goo.gl/Y6AJQGjoeTibqiib7
+
 @bot.command
 @lightbulb.option("category", "rule category", choices=["Main", "Minecraft", "Minecraft Shops"],  required=True)
 @lightbulb.option("number", "number for the rule", required=True)
