@@ -1,5 +1,6 @@
 
-#installs all nessisary pips
+#installs all nessisary pips removed so that code can run on rasberry pi
+"""
 try:
     import lightbulb
     import hikari
@@ -7,7 +8,7 @@ try:
     import requests 
 except ImportError:
     print("NEED TO PIP INSTALL LIGHTBULB HIKARI DOTENV AND REQUESTS")
-
+"""
 #imports pips
 from ctypes import Union
 import lightbulb
