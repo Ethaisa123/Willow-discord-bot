@@ -21,7 +21,8 @@ import requests
 load_dotenv()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
-
+print(TOKEN)
+TOKEN = TOKEN.replace(" ", "")
 #generating files
 
 
