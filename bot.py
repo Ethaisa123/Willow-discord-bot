@@ -103,6 +103,11 @@ async def ping(ctx):
 async def ping(ctx):
     await ctx.respond("https://github.com/Ethaisa123/Willow-discord-bot")
 
+@bot.command
+@lightbulb.command("jesus", "jesus!")
+@lightbulb.implements(lightbulb.SlashCommand)
+async def ping(ctx):
+    await ctx.respond("https://upload.wikimedia.org/wikipedia/commons/4/4a/Spas_vsederzhitel_sinay.jpg")
 
 #BOT COMMAND FOR VERSE
 @bot.command()
@@ -181,7 +186,6 @@ async def echo(ctx):
 
 
 """
-
 https://photos.app.goo.gl/Y6AJQGjoeTibqiib7
 
 """
