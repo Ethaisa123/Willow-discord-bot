@@ -6,7 +6,7 @@ try:
     from dotenv import load_dotenv
     import requests 
 except ImportError:
-    os.system('pip install -r requirements.txt')
+    print("NEED TO PIP INSTALL LIGHTBULB HIKARI DOTENV AND REQUESTS")
 
 #imports pips
 from ctypes import Union
