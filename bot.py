@@ -14,7 +14,6 @@ from ctypes import Union
 import lightbulb
 import hikari
 import datetime
-import os
 from dotenv import load_dotenv
 import requests 
 
