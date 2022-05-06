@@ -10,16 +10,14 @@ except ImportError:
 
 #imports pips
 from ctypes import Union
-
 import lightbulb
 import hikari
 import datetime
 from dotenv import load_dotenv
 import requests 
 
-load_dotenv()
 
-TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = "OTY5MzI3NzUxNzc1NTMxMDQ4.  Ymry0Q.rVeFlbGXxc10HQrPQrjLJ_Xa8Hk"
 print(TOKEN)
 TOKEN = TOKEN.replace(" ", "")
 #generating files
