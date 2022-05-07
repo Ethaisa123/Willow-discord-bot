@@ -149,7 +149,7 @@ async def add(ctx):
     date = str(today)
     print(ctx.options.bug + " : " + date)
     f = open("bugs.txt", "a")
-    f.write(ctx.author.username + " : " + ctx.options.bug + " : " + str(date) + "\n")
+    f.write("{} : {} : {} \n" .format(ctx.author.username, ctx.options.bug ,str(date)) )
     f.close()
 
 
