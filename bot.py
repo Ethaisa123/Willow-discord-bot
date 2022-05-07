@@ -137,7 +137,6 @@ async def echo(ctx):
     elif ctx.options.camps == "general-playlist":
         await ctx.respond(ctx.options.camps + ": https://open.spotify.com/playlist/1bOpQMbSqb1lWmAsqyGcQX")
 
-
 #bot command bug report
 @bot.command
 @lightbulb.option("bug", "a place to type any bugs you find")
@@ -149,7 +148,7 @@ async def add(ctx):
     date = str(today)
     print(ctx.options.bug + " : " + date)
     f = open("bugs.txt", "a")
-    f.write(ctx.options.bug + " : " + str(date) + " : " + ctx.author.username "\n")
+    f.write(ctx.author.username + " : " + ctx.options.bug + " : " + str(date) + "\n")
     f.close()
 
 
