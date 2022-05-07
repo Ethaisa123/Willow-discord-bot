@@ -137,7 +137,6 @@ async def echo(ctx):
     elif ctx.options.camps == "general-playlist":
         await ctx.respond(ctx.options.camps + ": https://open.spotify.com/playlist/1bOpQMbSqb1lWmAsqyGcQX")
 
-
 #bot command bug report
 @bot.command
 @lightbulb.option("bug", "a place to type any bugs you find")
