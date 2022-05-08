@@ -79,7 +79,7 @@ days_until = str(diff.days)
 #authing discord bot and adding servers
 bot = lightbulb.BotApp(
     token=TOKEN,
-    default_enabled_guilds=(733440457618620417)
+    default_enabled_guilds=(733440457618620417, 952065165988339722, 794686304810041345)
 )
 
 
