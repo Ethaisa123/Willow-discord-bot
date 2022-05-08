@@ -79,7 +79,7 @@ days_until = str(diff.days)
 #authing discord bot and adding servers
 bot = lightbulb.BotApp(
     token=TOKEN,
-    default_enabled_guilds=(970284254925840414, 733440457618620417, 952065165988339722, 970282983976230963)
+    default_enabled_guilds=(733440457618620417)
 )
 
 
@@ -101,14 +101,7 @@ async def ping(ctx):
 @lightbulb.command("website", "the bot github website!")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ping(ctx):
-    value = randint(0, 3)
-    jesus = [
-    "https://github.com/Ethaisa123/Willow-discord-bot",
-    "https://static.wikia.nocookie.net/headhuntersholosuite/images/d/d8/Jesus_Christ.jpg/revision/latest/scale-to-width-down/225?cb=20171123000925",
-    "https://wp.en.aleteia.org/wp-content/uploads/sites/2/2018/10/web3-christ-pantocrator-pd.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/1200px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg"
-    ]
-    await ctx.respond(jesus[value])
+    await ctx.respond("https://github.com/Ethaisa123/Willow-discord-bot")
 
 
 #JESUS COMMAnD
@@ -116,7 +109,16 @@ async def ping(ctx):
 @lightbulb.command("jesus", "jesus!")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ping(ctx):
-    await ctx.respond("https://upload.wikimedia.org/wikipedia/commons/4/4a/Spas_vsederzhitel_sinay.jpg")
+    value = randint(0, 3)
+    jesus = [
+    "https://upload.wikimedia.org/wikipedia/commons/4/4a/Spas_vsederzhitel_sinay.jpg",
+    "https://static.wikia.nocookie.net/headhuntersholosuite/images/d/d8/Jesus_Christ.jpg/revision/latest/scale-to-width-down/225?cb=20171123000925",
+    "https://wp.en.aleteia.org/wp-content/uploads/sites/2/2018/10/web3-christ-pantocrator-pd.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/1200px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg"
+    ]
+    print(value)
+    print(jesus[value])
+    await ctx.respond(jesus[value])
 
 #BOT COMMAND FOR VERSE
 @bot.command()
@@ -179,7 +181,7 @@ async def echo(ctx):
 #PHOTOS COMMAND
 @bot.command()
 @lightbulb.option("camps", "the photos from different camps (contact Ethan to add photos)", choices=["retro-camp", "futuristic-camp-N/A", "olympic-camp-N/A", "aquatic-camp-N/A"], required=True)
-@lightbulb.command("camp-photos", "the photos from different camps")
+@lightbulb.command("camp-photos", "the photos from different camps (contact Ethan to add photos)")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def echo(ctx):
     if ctx.options.camps == "futuristic-camp-N/A":
