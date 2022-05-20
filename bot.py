@@ -109,11 +109,12 @@ async def ping(ctx):
 @lightbulb.command("jesus", "jesus!")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ping(ctx):
-    value = randint(0, 3)
+    value = randint(0, 4)
     jesus = [
     "https://upload.wikimedia.org/wikipedia/commons/4/4a/Spas_vsederzhitel_sinay.jpg",
     "https://static.wikia.nocookie.net/headhuntersholosuite/images/d/d8/Jesus_Christ.jpg/revision/latest/scale-to-width-down/225?cb=20171123000925",
     "https://wp.en.aleteia.org/wp-content/uploads/sites/2/2018/10/web3-christ-pantocrator-pd.jpg",
+    "http://www.artnet.com/WebServices/images/ll00292lldk0kFFgUNECfDrCWvaHBOc87F/andres-serrano-piss-christ.jpg"
     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/1200px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg"
     ]
     print(value)
