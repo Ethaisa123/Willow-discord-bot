@@ -68,12 +68,7 @@ def verse_funct_image(r):
     return(final_verse_image)
 
 
-#calculating days until next camp
-today = datetime.date.today()
-#why is the date randomly 1-2 days off IDK BUT IT SURE AS HELL IS ANNOYING
-future = datetime.date(2022,7,17)
-diff = future - today
-days_until = str(diff.days)
+
 
 
 #authing discord bot and adding servers
@@ -94,6 +89,12 @@ async def on_start(event):
 @lightbulb.command("time-until-camp", "tells you the ammount of days until the next camp")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ping(ctx):
+    #calculating days until next camp
+    today = datetime.date.today()
+    #why is the date randomly 1-2 days off IDK BUT IT SURE AS HELL IS ANNOYING
+    future = datetime.date(2022,7,17)
+    diff = future - today
+    days_until = str(diff.days)
     await ctx.respond("It is {} days until camp!" .format(days_until))
 
 #WEBSITE COMMAND
