@@ -95,7 +95,10 @@ async def ping(ctx):
     future = datetime.date(2022,7,17)
     diff = future - today
     days_until = str(diff.days)
-    await ctx.respond("It is {} days until camp!" .format(days_until))
+    if days_until == 1:
+        await ctx.respond("It is 1 day until camp!")
+    else:
+        await ctx.respond("It is {} days until camp!" .format(days_until))
 
 #WEBSITE COMMAND
 @bot.command
