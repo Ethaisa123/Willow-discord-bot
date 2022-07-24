@@ -92,7 +92,7 @@ async def ping(ctx):
     #calculating days until next camp
     today = datetime.date.today()
     #why is the date randomly 1-2 days off IDK BUT IT SURE AS HELL IS ANNOYING
-    future = datetime.date(2022,7,17)
+    future = datetime.date(2022,10,9)
     diff = future - today
     days_until = str(diff.days)
     print(days_until)
